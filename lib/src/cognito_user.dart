@@ -657,13 +657,13 @@ class CognitoUser {
     return data;
   }
 
-  Future<void> completeNewPasswordChallenge(String newPassword) async {
+  Future<dynamic> completeNewPasswordChallenge(String newPassword) async {
     final Map<String, String> challengeResponses = {
       'USERNAME': this.username,
       'NEW_PASSWORD': newPassword,
     };
 
-    final data = await respondToChallenge(
+    return await respondToChallenge(
       'NEW_PASSWORD_REQUIRED',
       challengeResponses
     );
